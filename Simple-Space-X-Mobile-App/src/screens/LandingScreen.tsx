@@ -10,10 +10,11 @@ export const LandingScreen = () => {
                 
             </View>
             <View style={styles.body}>
+                <Image source={require('../images/SpaceX.jpg')} style={styles.spaceX} />
                 <Text> Landing Screen </Text>
             </View>
             <View style={styles.footer}>
-                <Text> Footer </Text>
+                
             </View>
         </View>
     )
@@ -26,17 +27,23 @@ const styles = StyleSheet.create({
         backgroundColor: 'green'
     },
     navigation: {
-        flex: 2,
-        backgroundColor: 'red'
+        flex: 0,
+        backgroundColor: 'black'
     },
     body: {
         flex: 9,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'yellow'
+        backgroundColor: 'black'
     },
+
+    spaceX:{
+        width: 340,
+        height: 340,
+    },
+
     footer: {
         flex: 1,
-        backgroundColor: 'cyan'
+        backgroundColor: 'black'
     }
 })
