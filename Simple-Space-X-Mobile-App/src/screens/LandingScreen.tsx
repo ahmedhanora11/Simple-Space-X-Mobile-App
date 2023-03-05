@@ -1,9 +1,16 @@
 import React from 'react'
 import { View, Text, StyleSheet, Dimensions, Image} from 'react-native'
 
+import { useNavigation } from '../utils'
 
 export const LandingScreen = () => {
     
+    const { navigate } = useNavigation()
+
+    setTimeout(() => {
+        navigate('homeStack')
+    }, 4000)
+
     return(
         <View style={styles.container}>
             <View style={styles.navigation}>
