@@ -1,44 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
 import { View, Text, StyleSheet, Dimensions, Image} from 'react-native'
-import * as ReactDOM from 'react-dom/client';
 import React from 'react';
 import HomeScreen  from './src/screens/HomeScreen';
 import { SocialScreen } from './src/screens/SocialScreen';
-import { AccountScreen } from './src/screens/AccountScreen';
 import { LandingScreen } from './src/screens/LandingScreen';
-
-import { Provider } from 'react-redux';
-import { space } from './src/redux';
-
-
+//
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import { ApolloClient, gql, InMemoryCache, ApolloProvider, HttpLink } from '@apollo/client';
+import { ApolloClient, gql, InMemoryCache, ApolloProvider, HttpLink, useLazyQuery } from '@apollo/client';
+// Apollo client from services
+import client from './src/services/spaceX_client';
+// Rockets Query from services
+import RocketQuery from './src/services/spaceX_Service';
+//
 
 
-
-//apollo
-const client = new ApolloClient({
-    link: new HttpLink({
-        uri: 'https://spacex-production.up.railway.app/',
-    }),
-    cache: new InMemoryCache(),
-  });
-
-  const RocketQuery = gql`
-  query Rockets($rocketName: String){
-    rockets(byName:$rocketName){
-      boosters
-      company
-      country
-      description
-      name
-      type
-      id
-    }
-  }
-  `
 
 const switchNavigator = createSwitchNavigator({
     landingStack: {
@@ -130,7 +106,7 @@ const switchNavigator = createSwitchNavigator({
 
 export default function App() {
   return (
-    //Provider containd appNavigation
+    //Provider by Apollo
     <ApolloProvider client={client}>
     
     <AppNavigation />

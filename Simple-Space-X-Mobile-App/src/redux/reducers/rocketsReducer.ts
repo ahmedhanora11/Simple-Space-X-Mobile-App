@@ -1,5 +1,0 @@
-const RocketsReducer = () => {
-
-}
-
-export { RocketsReducer }

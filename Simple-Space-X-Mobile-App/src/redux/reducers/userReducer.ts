@@ -1,7 +1,0 @@
-
-
-const UserReducer = () => {
-
-}
-
-export { UserReducer }
