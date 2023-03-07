@@ -1,0 +1,5 @@
+const RocketsReducer = () => {
+
+}
+
+export { RocketsReducer }

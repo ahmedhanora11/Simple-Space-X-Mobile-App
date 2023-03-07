@@ -1,0 +1,7 @@
+
+
+const UserReducer = () => {
+
+}
+
+export { UserReducer }

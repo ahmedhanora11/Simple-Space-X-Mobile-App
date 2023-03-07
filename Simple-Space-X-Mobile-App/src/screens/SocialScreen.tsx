@@ -2,15 +2,15 @@ import React from 'react'
 import { View, Text, StyleSheet, Dimensions, Image} from 'react-native'
 
 
-export const HomeScreen = () => {
+export const SocialScreen = () => {
     
     return(
         <View style={styles.container}>
             <View style={styles.navigation}>
-                <Text> Navigation </Text>
+                <Text> up </Text>
             </View>
             <View style={styles.body}>
-                <Text> Home Screen </Text>
+                <Text> Social Screen </Text>
             </View>
             <View style={styles.footer}>
                 <Text> Footer </Text>
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'green'
     },
     navigation: {
-        flex: 2,
+        flex: 1,
         backgroundColor: 'red'
     },
     body: {
