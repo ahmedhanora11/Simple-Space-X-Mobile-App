@@ -7,8 +7,8 @@ export interface RocketInventory {
   diameter: {meters: number}
   height: {meters: number}
   mass: {kg: number}
-  success_rate_pct: number
   description: string
+  boosters: string
 }
 
 export interface RocketInventoryData {

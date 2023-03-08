@@ -1,9 +1,12 @@
 import React from 'react'
 import { View, Text, StyleSheet, Dimensions, Image} from 'react-native'
+import { RootStackParamList } from '../utils/types';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
+export type SocialScreenProps = NativeStackScreenProps<RootStackParamList, 'SocialScreen'>;
+const SocialScreen: React.FC<SocialScreenProps> = ( {route}: SocialScreenProps) => {
+    const item = route.params;
 
-export const SocialScreen = () => {
-    
     return(
         <View style={styles.container}>
             <View style={styles.navigation}>
@@ -33,10 +36,12 @@ const styles = StyleSheet.create({
         flex: 9,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'yellow'
+        backgroundColor: 'green'
     },
     footer: {
         flex: 1,
         backgroundColor: 'cyan'
     }
 })
+
+export default SocialScreen;

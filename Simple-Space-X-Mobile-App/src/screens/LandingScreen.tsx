@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, Dimensions, Image} from 'react-native'
 
-import { useNavigation } from '../utils'
+import { useNavigation } from '../utils/types'
 
 export const LandingScreen = () => {
     

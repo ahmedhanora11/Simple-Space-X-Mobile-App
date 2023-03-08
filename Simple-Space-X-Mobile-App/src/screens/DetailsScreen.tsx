@@ -6,7 +6,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { Dimensions } from 'react-native'; 
 
 
-import { imageSelect } from '../images/rocketImage';
+import { imageSelect } from '../components/data/rocketImage';
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -17,13 +17,15 @@ export type DetailsScreenProps = NativeStackScreenProps<RootStackParamList, 'Det
 const DetailsScreen: React.FC<DetailsScreenProps> = ( {route, navigation}: DetailsScreenProps) => {
     const item = route.params;
 
+    // back arrow
     const upperBackground =
         <ImageBackground source={imageSelect(item.rocketDetails.name)} style={styles.backgroundImage}>
             <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Image source={require('../assets/images/left-arrow.png')} style={styles.arrowBack}/>
+            <Image source={require('../images/back.png')} style={styles.arrowBack}/>
             </TouchableOpacity>
         </ImageBackground>
 
+    // active and inactive display
     const rocketSatus = 
         <View style={[styles.rocketStatus, item.rocketDetails.active ? styles.rocketActiveStatus : styles.rocketInactiveStatus]}>  
             {item.rocketDetails.active ? 
@@ -43,11 +45,11 @@ const DetailsScreen: React.FC<DetailsScreenProps> = ( {route, navigation}: Detai
             </View>
             <View style={styles.subTitlesWrapper}>
                 <View style={styles.rocketSubtitleWrapper}>
-                    <Image source={require('../assets/images/rocket.png')} style={styles.icon}/>
+                    <Image source={require('../images/rocket.png')} style={styles.icon}/>
                     <Text style={styles.rocketSubtitle}>{item.rocketDetails.type}</Text>
                 </View>
                 <View style={styles.rocketCountrySubtitleWrapper}>
-                    <Image source={require('../assets/images/map-black.png')} style={styles.icon}/>
+                    <Image source={require('../images/map-white.png')} style={styles.icon}/>
                     <Text style={styles.rocketSubtitle}>{item.rocketDetails.country}</Text>
                 </View>
             </View>
@@ -76,11 +78,13 @@ const DetailsScreen: React.FC<DetailsScreenProps> = ( {route, navigation}: Detai
                     <Text style={styles.infoTitle}>MASS</Text>
                     <Text style={styles.infoText}>{item.rocketDetails.mass.kg} kg</Text>
                 </View>
-                <View style={styles.infoItem}>
-                    <Text style={styles.infoTitle}>SUCCESS PCT</Text>
-                    <Text style={styles.infoText}>{item.rocketDetails.success_rate_pct} %</Text>
-                </View>                
+            <View style={styles.infoItem}>
+                    <Text style={styles.infoTitle}>BOOSTERS</Text>
+                    <Text style={styles.infoText}>{item.rocketDetails.boosters} </Text>
+            </View>             
             </View>
+              
+            
         </View>
     
     const lowerDetails =
@@ -91,10 +95,10 @@ const DetailsScreen: React.FC<DetailsScreenProps> = ( {route, navigation}: Detai
 
     return (  
         <View style={styles.container}>
-            {/* Upper background */}
+            {/* top */}
             {upperBackground}
 
-            {/* Lower details */}
+            {/* bottom */}
             {lowerDetails}
        </View>
     );
@@ -103,10 +107,11 @@ const DetailsScreen: React.FC<DetailsScreenProps> = ( {route, navigation}: Detai
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: 'black',
+        color: 'black'
     },
 
-    // Upper part image background
+    // Image part
     backgroundImage: {
         height: windowHeight * 0.5,
         justifyContent: 'space-between',
@@ -118,7 +123,7 @@ const styles = StyleSheet.create({
         marginTop: 60,
     },
 
-    // Lower part detail descriptions
+    // Details part
     titlesWrapper: {
         marginHorizontal: 20,
         marginVertical: 20,
@@ -138,29 +143,31 @@ const styles = StyleSheet.create({
         fontSize: 11,
     },
     rocketActiveStatus: {
-        borderColor: '#1AA65A',
+        borderColor: 'blue',
     },
     rocketActiveText: {
-        color: '#1AA65A',
+        color: 'blue',
     },
     rocketInactiveStatus: {
-        borderColor: '#E74B1A',
+        borderColor: 'gray',
     },
     rocketInactiveText: {
-        color: '#E74B1A',
+        color: 'gray',
     },
     rocketTitle: {
-        fontSize: 28,
-        color: 'black',
+        fontSize: 30,
+        color: 'white',
         fontWeight: 'bold',
     },
     subTitlesWrapper: {
         flexDirection: 'row',
+        
     },
     rocketSubtitleWrapper: {
         flexDirection: 'row',
         marginTop: 15, 
         alignItems: 'center',
+        
     },
     rocketCountrySubtitleWrapper: {
         flexDirection: 'row',
@@ -170,9 +177,10 @@ const styles = StyleSheet.create({
     },
     rocketSubtitle: {
         fontSize: 13,
-        color: 'black',
+        color: 'white',
         marginLeft: 8, 
         alignItems: 'center',
+        
     },
     icon: {
         width: 12,
@@ -180,10 +188,11 @@ const styles = StyleSheet.create({
     },
     infoWrapper: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: 'black',
         marginTop: -20,
-        borderRadius: 25,
+        borderRadius: 20,
         paddingTop: 10,
+        
     },
     rocketDescriptionWrapper: {
         marginTop: 25, 
@@ -191,12 +200,13 @@ const styles = StyleSheet.create({
     },
     rocketDescription: {
         fontSize: 13,
-        color: 'gray',
+        color: '#d3d3d3',
         marginTop: 5, 
     },
     infoTitle: {
         fontWeight: 'bold',
         fontSize: 14,
+        color: 'white'
     },
     horiInfo: {
         flexDirection: 'row',
@@ -209,6 +219,7 @@ const styles = StyleSheet.create({
     infoText: {
         fontSize: 16,
         marginTop: 5,
+        color: 'white'
     },
 });
  
