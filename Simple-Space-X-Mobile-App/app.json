@@ -18,13 +18,19 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.spaceX.Simple",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "29f90261-9125-416d-b139-e77140a2a28d"
+      }
     }
   }
 }
