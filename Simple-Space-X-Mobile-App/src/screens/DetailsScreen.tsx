@@ -189,9 +189,9 @@ const styles = StyleSheet.create({
     infoWrapper: {
         flex: 1,
         backgroundColor: 'black',
-        marginTop: -20,
-        borderRadius: 20,
-        paddingTop: 10,
+        marginTop: -22,
+        borderRadius: 24,
+        paddingTop: 8,
         
     },
     rocketDescriptionWrapper: {
